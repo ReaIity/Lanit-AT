@@ -60,13 +60,15 @@ public class MyStepdefs {
     public void проверяемАвторизацию(String str, String icon) throws ClassNotFoundException, InterruptedException {
 
         System.out.println("Проверяем авторизацию");
+        Selenide.sleep(3000);
         getPageByTitle(str).getElementByName(icon).should(Condition.image);
 
     }
     @Затем("на странице {string} откроем случайную тему {string}")
     public void откроемСлучайнуюТему(String str, String page) throws ClassNotFoundException {
 
-        Selenide.sleep(4000);
+        System.out.println("Находим случайную тему");
+        Selenide.sleep(6000);
         getPageByTitle(str).getElementByName(page).should(Condition.visible).click();
 
     }
@@ -74,7 +76,7 @@ public class MyStepdefs {
 
     @И("На странице {string} найдем и кликнем по кнопке {string}")
     public void наСтраницеНайдемИКликнемПоКнопке(String str, String answer) throws ClassNotFoundException {
-
+        System.out.println("Клик по кнопке Ответить");
         getPageByTitle(str).getElementByName(answer).should(Condition.visible).click();
 
     }
@@ -82,7 +84,7 @@ public class MyStepdefs {
 
     @И("На странице {string} напишем комментарий {string}")
     public void наСтраницеНапишемКомментарий(String str, String text) throws ClassNotFoundException {
-
+        System.out.println("Оставляем комментарий");
         getPageByTitle(str).getElementByName(text).val(userMessage).submit();
 
     }
@@ -90,6 +92,7 @@ public class MyStepdefs {
     @И("На странице {string} проверим наличие комментария {string}")
     public void наСтраницеПроверимНаличиеКомментария(String str, String checkAnswer) throws ClassNotFoundException {
 
+        System.out.println("Проверяем наличие комментария");
         getPageByTitle(str).getElementByName(checkAnswer).should(Condition.visible);
 
     }
@@ -97,6 +100,7 @@ public class MyStepdefs {
     @Затем("на странице {string} перейдем на страницу с темами {string}")
     public void наСтраницеПерейдемНаСтраницуСТемами(String str, String bar) throws ClassNotFoundException {
 
+        System.out.println("Переход на страницу с темами");
         getPageByTitle(str).getElementByName(bar).should(Condition.visible).click();
 
     }

@@ -23,7 +23,7 @@ public class MainPage extends AbstractPage {
         return $(By.xpath("//*[@id=\"user-menu-mount\"]/ul/li[3]/a/img")).should(Condition.visible);
     }
 
-    @Element("Случайный топик")
+    @Element("Случайная тема")
     public SelenideElement openRandomTopic(){
         ElementsCollection collection=  $$(By.xpath("//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
         return collection.get((int) (collection.size()*Math.random()));

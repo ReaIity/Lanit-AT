@@ -53,10 +53,12 @@ public class AppTest {
     @Test
     public void randomTheme() throws InterruptedException {
 
-        open("https://dev.n7lanit.ru/");
+        $(By.xpath("//button/span[contains(text(), 'Категория')]/..")).should(Condition.visible).click();
+        $(By.xpath("//a[@class='btn btn-link']")).should(Condition.visible).click();
+
         ElementsCollection collection = $$(By.xpath("//span[@class='thread-detail-replies' and not(preceding-sibling::span)]/ancestor::div[3]/a"));
         collection.get((int) (collection.size()*Math.random())).click();
-        Selenide.sleep(6000);
+
         $(By.xpath("//div[@class='col-sm-4 hidden-xs']/button[@class='btn btn-primary btn-block btn-outline']")).shouldHave(text("Ответить")).click();
         $(By.xpath("//textarea[@id='editor-textarea']")).shouldBe(Condition.visible).val("Новый интересный комментарий").submit();
         $(By.xpath("//div[@class='post-body']/article/p[contains(text(),'Новый интересный комментарий')]")).isDisplayed();

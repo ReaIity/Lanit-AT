@@ -15,29 +15,30 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$;
 
 
-@Page(title = "Страница топик", url = "")
+@Page(title = "Случайная тема", url = "")
 public class TopicPage extends AbstractPage{
 
     @Element("Ответить")
-       public SelenideElement buttonAnswerClick() {
-          return  $(By.xpath("//div[@class='col-sm-4 hidden-xs']/button[@class='btn btn-primary btn-block btn-outline']"));
-       }
+    public SelenideElement buttonAnswerClick() {
+        return  $(By.xpath("//div[@class='col-sm-4 hidden-xs']/button[@class='btn btn-primary btn-block btn-outline']"));
+    }
     @Element("Текст")
-       public SelenideElement inputTextBox(){
-           return $(By.xpath("//textarea[@id='editor-textarea']"));
-       }
+    public SelenideElement inputTextBox(){
+
+        return $(By.xpath("//textarea[@id='editor-textarea']"));
+    }
 
     @Element("Отправить ответ")
-       public SelenideElement sendResponse() {
-           return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']"));
-       }
+    public SelenideElement sendResponse() {
+        return $(By.xpath("//*[@id='posting-mount']//*[text()='Отправить ответ']"));
+    }
     @Element("Ответ")
-       public SelenideElement checkMessageIsDisplayed(){
-           return $(By.xpath("//*[@class='panel-body']//*[text()='" + userLogin+ "' and '" + userMessage + "']"));
-       }
+    public SelenideElement checkMessageIsDisplayed(){
+        return $(By.xpath("//*[@class='panel-body']//*[text()='" + userLogin+ "' and '" + userMessage + "']"));
+    }
     @Element("Темы")
-       public SelenideElement goToMainPage() {
-           return $(By.xpath("//ul[@class='nav navbar-nav']//a[contains(text(),'Темы')]"));
-       }
+    public SelenideElement goToMainPage() {
+        return $(By.xpath("//ul[@class='nav navbar-nav']//a[contains(text(),'Темы')]"));
+    }
 
 }
