@@ -106,4 +106,8 @@ public class MyStepdefs {
         $(By.xpath("//div[@class='post-body']/article/p[contains(text(),'Другой интересный текст для сообщения')]")).isDisplayed();
 
     }
+
+    @И("Начинаем тест")
+    public void начинаемТест() {
+    }
 }
